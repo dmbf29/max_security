@@ -15,9 +15,20 @@
     <% @prison.inmates.each do |inmate| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= inmate.image_url %>);">
+
+
+          <div class="card-tags">
+            <% inmate.crimes.each do |crime| %>
+              <span><%= crime.name %></span>
+            <% end %>
+            <%= link_to new_inmate_inmate_crime_path(inmate) do %>
+              <span><i class="fas fa-plus"></i></span>
+            <% end %>
+          </div>
+
+
           <div class="card-description">
             <h2><%= inmate.name %></h2>
-            <p><%= inmate.crime %></p>
           </div>
           <%= link_to inmate_path(inmate), class: "card-remove-link", method: :delete do %>
             <i class="fas fa-syringe"></i>

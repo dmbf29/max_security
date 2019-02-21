@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_085916) do
+ActiveRecord::Schema.define(version: 2019_02_21_084639) do
+
+  create_table "crimes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inmate_crimes", force: :cascade do |t|
+    t.integer "inmate_id"
+    t.integer "crime_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["crime_id"], name: "index_inmate_crimes_on_crime_id"
+    t.index ["inmate_id"], name: "index_inmate_crimes_on_inmate_id"
+  end
 
   create_table "inmates", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
-    t.string "crime"
     t.integer "prison_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
