@@ -5,6 +5,7 @@
   background-position: center;
   color: white;
   position: relative;
+  margin: 10px 0;
 }
 .card-user {
   position: absolute;
@@ -55,3 +56,42 @@
   font-size: 2em;
 }
 
+.card-tags {
+  position: absolute;
+  width: 80%;
+  padding: 8px;
+
+  span {
+    background: $blue;
+    font-size: .7em;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
+  a {
+    color: white;
+  }
+}
+
+.card-remove-link {
+  color: $red;
+  border-radius: 50%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transform: rotate(45deg);
+  opacity: 0.8;
+  font-size: 2em;
+  &:hover {
+    color: $yellow;
+    text-decoration: none;
+    opacity: 1;
+    border: 1px solid $yellow;
+  }
+}

@@ -1,0 +1,20 @@
+.form-wrapper {
+  background-color: white;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  label {
+    margin: 0 10px;
+  }
+  margin-bottom: 10px;
+}
+
+.form-header {
+  background-color: white;
+  padding: 20px 20px 0 20px;
+  margin-top: 20px;
+  text-align: center;
+  h4 {
+    margin: 0;
+  }
+}

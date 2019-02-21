@@ -6,22 +6,24 @@
   </div>
 </div>
 <div class="container">
-  <%= simple_form_for([@prison, @inmate], html: { class: 'form-inline' }) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :image_url %>
-    <%= f.input :crime, collection: Inmate::CRIMES %>
-    <%= f.submit "Add", class: "btn btn-warning" %>
-  <% end %>
+  <div class="form-header">
+    <h4>Incarcerate Inmate</h4>
+  </div>
+  <%= render 'inmates/form' %>
 
-  <% @prison.inmates.each do |inmate| %>
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= inmate.image_url %>);">
-      <div class="card-description">
-        <h2><%= inmate.name %></h2>
-        <p><%= inmate.crime %></p>
+  <div class="row">
+    <% @prison.inmates.each do |inmate| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= inmate.image_url %>);">
+          <div class="card-description">
+            <h2><%= inmate.name %></h2>
+            <p><%= inmate.crime %></p>
+          </div>
+          <%= link_to inmate_path(inmate), class: "card-remove-link", method: :delete do %>
+            <i class="fas fa-syringe"></i>
+          <% end %>
+        </div>
       </div>
-      <%= link_to inmate_path(inmate), class: "inmate-destroy-link", method: :delete do %>
-        <i class="fas fa-syringe"></i>
-      <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
